@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "SyncNPlay",
+  "version": "0.1.0",
+  "description": "Sync video playback across streaming platforms with friends",
+  "permissions": ["activeTab", "storage", "scripting"],
+  "host_permissions": ["*://*.youtube.com/*"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "48": "icons/icon48.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
